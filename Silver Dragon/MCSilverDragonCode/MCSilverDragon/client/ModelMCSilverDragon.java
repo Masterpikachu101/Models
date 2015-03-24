@@ -10,9 +10,9 @@ import yourModPackage.common.MCACommonLibrary.MCAVersionChecker;
 import yourModPackage.common.MCACommonLibrary.animation.AnimationHandler;
 import yourModPackage.common.MCACommonLibrary.math.Matrix4f;
 import yourModPackage.common.MCACommonLibrary.math.Quaternion;
-import yourModPackage.common.entities.mobs.EntitySilverDragon;
+import yourModPackage.common.entities.mobs.EntityMCSilverDragon;
 
-public class ModelSilverDragon extends ModelBase {
+public class ModelMCSilverDragon extends ModelBase {
 public final int MCA_MIN_REQUESTED_VERSION = 3;
 public HashMap<String, MCAModelRenderer> parts = new HashMap<String, MCAModelRenderer>();
 
@@ -20,18 +20,10 @@ MCAModelRenderer leftLeg1;
 MCAModelRenderer backLeftLeg1;
 MCAModelRenderer rightLeg1;
 MCAModelRenderer backRightLeg1;
-MCAModelRenderer topMouth;
-MCAModelRenderer bottomMouth;
 MCAModelRenderer neck;
-MCAModelRenderer head;
 MCAModelRenderer rWing1;
 MCAModelRenderer lWing1;
-MCAModelRenderer neckSpikes;
 MCAModelRenderer tail1;
-MCAModelRenderer tail2;
-MCAModelRenderer tail3;
-MCAModelRenderer tail4;
-MCAModelRenderer tailWing;
 MCAModelRenderer body;
 MCAModelRenderer leftLeg2;
 MCAModelRenderer leftFoot;
@@ -41,14 +33,22 @@ MCAModelRenderer rightFoot;
 MCAModelRenderer rightLeg2;
 MCAModelRenderer backRightLeg2;
 MCAModelRenderer backRightFoot;
+MCAModelRenderer head;
+MCAModelRenderer neckSpikes;
+MCAModelRenderer bottomMouth;
+MCAModelRenderer topMouth;
 MCAModelRenderer rWing2;
 MCAModelRenderer rWing3;
 MCAModelRenderer rWing4;
 MCAModelRenderer lWing2;
 MCAModelRenderer lWing3;
 MCAModelRenderer lWing4;
+MCAModelRenderer tail2;
+MCAModelRenderer tail3;
+MCAModelRenderer tail4;
+MCAModelRenderer tailWing;
 
-public ModelSilverDragon()
+public ModelMCSilverDragon()
 {
 MCAVersionChecker.checkForLibraryVersion(getClass(), MCA_MIN_REQUESTED_VERSION);
 
@@ -87,22 +87,6 @@ backRightLeg1.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(-0.3420
 backRightLeg1.setTextureSize(512, 256);
 parts.put(backRightLeg1.boxName, backRightLeg1);
 
-topMouth = new MCAModelRenderer(this, "topMouth", 0, 60);
-topMouth.mirror = false;
-topMouth.addBox(-4.0F, -2.0F, 0.0F, 8, 4, 8);
-topMouth.setInitialRotationPoint(-3.0F, 12.0F, 41.0F);
-topMouth.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-topMouth.setTextureSize(512, 256);
-parts.put(topMouth.boxName, topMouth);
-
-bottomMouth = new MCAModelRenderer(this, "bottomMouth", 0, 75);
-bottomMouth.mirror = false;
-bottomMouth.addBox(-4.0F, -0.5F, 0.0F, 8, 1, 8);
-bottomMouth.setInitialRotationPoint(-3.0F, 9.5F, 41.0F);
-bottomMouth.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-bottomMouth.setTextureSize(512, 256);
-parts.put(bottomMouth.boxName, bottomMouth);
-
 neck = new MCAModelRenderer(this, "neck", 40, 60);
 neck.mirror = false;
 neck.addBox(-3.0F, -3.0F, 0.0F, 6, 6, 25);
@@ -110,14 +94,6 @@ neck.setInitialRotationPoint(-3.0F, -0.5F, 14.0F);
 neck.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(-0.34202012F, 0.0F, 0.0F, 0.9396926F)).transpose());
 neck.setTextureSize(512, 256);
 parts.put(neck.boxName, neck);
-
-head = new MCAModelRenderer(this, "head", 125, 45);
-head.mirror = false;
-head.addBox(-5.0F, -5.0F, 0.0F, 10, 10, 10);
-head.setInitialRotationPoint(-3.0F, 14.0F, 31.0F);
-head.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-head.setTextureSize(512, 256);
-parts.put(head.boxName, head);
 
 rWing1 = new MCAModelRenderer(this, "rWing1", 0, 100);
 rWing1.mirror = false;
@@ -135,14 +111,6 @@ lWing1.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.
 lWing1.setTextureSize(512, 256);
 parts.put(lWing1.boxName, lWing1);
 
-neckSpikes = new MCAModelRenderer(this, "neckSpikes", 0, 120);
-neckSpikes.mirror = false;
-neckSpikes.addBox(-15.0F, -15.0F, 2.0F, 30, 30, 0);
-neckSpikes.setInitialRotationPoint(-3.0F, 14.0F, 31.0F);
-neckSpikes.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(-0.21643962F, 0.0F, 0.0F, 0.976296F)).transpose());
-neckSpikes.setTextureSize(512, 256);
-parts.put(neckSpikes.boxName, neckSpikes);
-
 tail1 = new MCAModelRenderer(this, "tail1", 220, 0);
 tail1.mirror = false;
 tail1.addBox(-6.0F, -4.0F, -10.0F, 12, 8, 10);
@@ -150,38 +118,6 @@ tail1.setInitialRotationPoint(-3.0F, 0.0F, -28.0F);
 tail1.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
 tail1.setTextureSize(512, 256);
 parts.put(tail1.boxName, tail1);
-
-tail2 = new MCAModelRenderer(this, "tail2", 270, 0);
-tail2.mirror = false;
-tail2.addBox(-5.0F, -3.0F, -10.0F, 10, 6, 10);
-tail2.setInitialRotationPoint(-3.0F, 0.0F, -38.0F);
-tail2.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-tail2.setTextureSize(512, 256);
-parts.put(tail2.boxName, tail2);
-
-tail3 = new MCAModelRenderer(this, "tail3", 240, 20);
-tail3.mirror = false;
-tail3.addBox(-4.0F, -2.0F, -10.0F, 8, 4, 10);
-tail3.setInitialRotationPoint(-3.0F, 0.0F, -48.0F);
-tail3.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-tail3.setTextureSize(512, 256);
-parts.put(tail3.boxName, tail3);
-
-tail4 = new MCAModelRenderer(this, "tail4", 280, 20);
-tail4.mirror = false;
-tail4.addBox(-3.0F, -1.0F, -10.0F, 6, 2, 10);
-tail4.setInitialRotationPoint(-3.0F, 0.0F, -58.0F);
-tail4.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-tail4.setTextureSize(512, 256);
-parts.put(tail4.boxName, tail4);
-
-tailWing = new MCAModelRenderer(this, "tailWing", 320, 0);
-tailWing.mirror = false;
-tailWing.addBox(-9.0F, 1.0F, -10.0F, 18, 0, 10);
-tailWing.setInitialRotationPoint(-3.0F, 0.0F, -58.0F);
-tailWing.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
-tailWing.setTextureSize(512, 256);
-parts.put(tailWing.boxName, tailWing);
 
 body = new MCAModelRenderer(this, "body", 0, 0);
 body.mirror = false;
@@ -263,6 +199,42 @@ backRightFoot.setTextureSize(512, 256);
 parts.put(backRightFoot.boxName, backRightFoot);
 backRightLeg1.addChild(backRightFoot);
 
+head = new MCAModelRenderer(this, "head", 125, 45);
+head.mirror = false;
+head.addBox(-5.0F, -5.0F, 0.0F, 10, 10, 10);
+head.setInitialRotationPoint(0.0F, 0.0F, 22.5F);
+head.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.34202012F, 0.0F, 0.0F, 0.9396926F)).transpose());
+head.setTextureSize(512, 256);
+parts.put(head.boxName, head);
+neck.addChild(head);
+
+neckSpikes = new MCAModelRenderer(this, "neckSpikes", 0, 120);
+neckSpikes.mirror = false;
+neckSpikes.addBox(-15.0F, -15.0F, 2.0F, 30, 30, 0);
+neckSpikes.setInitialRotationPoint(0.0F, 0.0F, 21.0F);
+neckSpikes.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.21643962F, 0.0F, 0.0F, 0.976296F)).transpose());
+neckSpikes.setTextureSize(512, 256);
+parts.put(neckSpikes.boxName, neckSpikes);
+neck.addChild(neckSpikes);
+
+bottomMouth = new MCAModelRenderer(this, "bottomMouth", 0, 75);
+bottomMouth.mirror = false;
+bottomMouth.addBox(-4.0F, -2.0F, 0.0F, 8, 1, 8);
+bottomMouth.setInitialRotationPoint(0.0F, -8.6F, 28.3F);
+bottomMouth.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.34202012F, 0.0F, 0.0F, 0.9396926F)).transpose());
+bottomMouth.setTextureSize(512, 256);
+parts.put(bottomMouth.boxName, bottomMouth);
+neck.addChild(bottomMouth);
+
+topMouth = new MCAModelRenderer(this, "topMouth", 0, 60);
+topMouth.mirror = false;
+topMouth.addBox(-4.0F, -2.0F, 0.0F, 8, 4, 8);
+topMouth.setInitialRotationPoint(0.0F, -8.0F, 28.8F);
+topMouth.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.34202012F, 0.0F, 0.0F, 0.9396926F)).transpose());
+topMouth.setTextureSize(512, 256);
+parts.put(topMouth.boxName, topMouth);
+neck.addChild(topMouth);
+
 rWing2 = new MCAModelRenderer(this, "rWing2", 0, 110);
 rWing2.mirror = false;
 rWing2.addBox(-25.0F, -2.0F, -2.0F, 25, 4, 4);
@@ -317,12 +289,48 @@ lWing4.setTextureSize(512, 256);
 parts.put(lWing4.boxName, lWing4);
 lWing1.addChild(lWing4);
 
+tail2 = new MCAModelRenderer(this, "tail2", 270, 0);
+tail2.mirror = false;
+tail2.addBox(-5.0F, -3.0F, -10.0F, 10, 6, 10);
+tail2.setInitialRotationPoint(0.0F, 0.0F, -10.0F);
+tail2.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
+tail2.setTextureSize(512, 256);
+parts.put(tail2.boxName, tail2);
+tail1.addChild(tail2);
+
+tail3 = new MCAModelRenderer(this, "tail3", 240, 20);
+tail3.mirror = false;
+tail3.addBox(-4.0F, -2.0F, -10.0F, 8, 4, 10);
+tail3.setInitialRotationPoint(0.0F, 0.0F, -10.0F);
+tail3.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
+tail3.setTextureSize(512, 256);
+parts.put(tail3.boxName, tail3);
+tail2.addChild(tail3);
+
+tail4 = new MCAModelRenderer(this, "tail4", 280, 20);
+tail4.mirror = false;
+tail4.addBox(-3.0F, -1.0F, -10.0F, 6, 2, 10);
+tail4.setInitialRotationPoint(0.0F, 0.0F, -10.0F);
+tail4.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
+tail4.setTextureSize(512, 256);
+parts.put(tail4.boxName, tail4);
+tail3.addChild(tail4);
+
+tailWing = new MCAModelRenderer(this, "tailWing", 320, 0);
+tailWing.mirror = false;
+tailWing.addBox(-9.0F, 1.0F, -10.0F, 18, 0, 10);
+tailWing.setInitialRotationPoint(0.0F, 0.0F, 0.0F);
+tailWing.setInitialRotationMatrix(new Matrix4f().set(new Quaternion(0.0F, 0.0F, 0.0F, 1.0F)).transpose());
+tailWing.setTextureSize(512, 256);
+parts.put(tailWing.boxName, tailWing);
+tail4.addChild(tailWing);
+
 }
 
 @Override
 public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7) 
 {
-EntitySilverDragon entity = (EntitySilverDragon)par1Entity;
+EntityMCSilverDragon entity = (EntityMCSilverDragon)par1Entity;
 
 AnimationHandler.performAnimationInModel(parts, entity);
 
@@ -331,18 +339,10 @@ leftLeg1.render(par7);
 backLeftLeg1.render(par7);
 rightLeg1.render(par7);
 backRightLeg1.render(par7);
-topMouth.render(par7);
-bottomMouth.render(par7);
 neck.render(par7);
-head.render(par7);
 rWing1.render(par7);
 lWing1.render(par7);
-neckSpikes.render(par7);
 tail1.render(par7);
-tail2.render(par7);
-tail3.render(par7);
-tail4.render(par7);
-tailWing.render(par7);
 body.render(par7);
 }
 @Override

@@ -2,15 +2,15 @@ package yourModPackage.common.entities;
 
 import yourModPackage.common.MCACommonLibrary.IMCAnimatedEntity;
 import yourModPackage.common.MCACommonLibrary.animation.AnimationHandler;
-import yourModPackage.common.animations.SilverDragon.AnimationHandlerSilverDragon;
+import yourModPackage.common.animations.MCSilverDragon.AnimationHandlerMCSilverDragon;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class EntitySilverDragon extends EntityCreature implements IMCAnimatedEntity {
-	protected AnimationHandler animHandler = new AnimationHandlerSilverDragon(this);
-	public EntitySilverDragon(World par1World) {
+public class EntityMCSilverDragon extends EntityCreature implements IMCAnimatedEntity {
+	protected AnimationHandler animHandler = new AnimationHandlerMCSilverDragon(this);
+	public EntityMCSilverDragon(World par1World) {
 		super(par1World);
 	}
 

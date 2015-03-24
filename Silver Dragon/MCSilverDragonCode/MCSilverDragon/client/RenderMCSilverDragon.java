@@ -8,22 +8,22 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import yourModPackage.common.entities.mobs.EntitySilverDragon;
+import yourModPackage.common.entities.mobs.EntityMCSilverDragon;
 
-public class RenderSilverDragon extends RenderLiving {
+public class RenderMCSilverDragon extends RenderLiving {
 
-	public static final ResourceLocation SilverDragon_texture = new ResourceLocation("yourAssetsFolder", "textures/models/SilverDragon.png");
-	public static ModelSilverDragon modelSilverDragon = new ModelSilverDragon();	
+	public static final ResourceLocation MCSilverDragon_texture = new ResourceLocation("yourAssetsFolder", "textures/models/MCSilverDragon.png");
+	public static ModelMCSilverDragon modelMCSilverDragon = new ModelMCSilverDragon();	
 	public static float modelHeight = 2F;
 	
-	public RenderSilverDragon()
+	public RenderMCSilverDragon()
     {
-        super(modelSilverDragon, 1F);
+        super(modelMCSilverDragon, 1F);
     }
 	
 	@Override
 	public void doRender(Entity _entity, double posX, double posY, double posZ, float var8, float var9) {
-		EntitySilverDragon entity = (EntitySilverDragon) _entity;
+		EntityMCSilverDragon entity = (EntityMCSilverDragon) _entity;
 				
 		GL11.glPushMatrix();
 		GL11.glDisable(GL11.GL_CULL_FACE);
@@ -42,6 +42,6 @@ public class RenderSilverDragon extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity var1) {
-		return SilverDragon_texture;
+		return MCSilverDragon_texture;
 	}
 }

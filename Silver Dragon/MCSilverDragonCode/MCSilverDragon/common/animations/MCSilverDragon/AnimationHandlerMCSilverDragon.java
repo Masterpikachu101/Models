@@ -1,4 +1,4 @@
-package yourModPackage.common.animations.SilverDragon;
+package yourModPackage.common.animations.MCSilverDragon;
 
 import java.util.HashMap;
 
@@ -6,15 +6,16 @@ import yourModPackage.common.MCACommonLibrary.IMCAnimatedEntity;
 import yourModPackage.common.MCACommonLibrary.animation.AnimationHandler;
 import yourModPackage.common.MCACommonLibrary.animation.Channel;
 
-public class AnimationHandlerSilverDragon extends AnimationHandler {
+public class AnimationHandlerMCSilverDragon extends AnimationHandler {
 	/** Map with all the animations. */
 	public static HashMap<String, Channel> animChannels = new HashMap<String, Channel>();
 static
 {
-animChannels.put("Fly", new ChannelFly("Fly", 1.0F, 3, Channel.LOOP));
-animChannels.put("Walk", new ChannelWalk("Walk", 2.0F, 3, Channel.LOOP));
+animChannels.put("Fly", new ChannelFly("Fly", 2.0F, 3, Channel.LOOP));
+animChannels.put("Walk", new ChannelWalk("Walk", 3.0F, 3, Channel.LOOP));
+animChannels.put("Idle", new ChannelIdle("Idle", 2.0F, 5, Channel.LINEAR));
 }
-	public AnimationHandlerSilverDragon(IMCAnimatedEntity entity) {
+	public AnimationHandlerMCSilverDragon(IMCAnimatedEntity entity) {
 		super(entity);
 	}
 
